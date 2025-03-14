@@ -37,7 +37,7 @@ public class User {
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters long")
     @Column(nullable = false)
-    private String password; // ✅ Ensure password is encrypted before saving
+    private String password; 
 
     /** User's date of birth (cannot be null) */
     @NotNull(message = "Date of Birth is required")
