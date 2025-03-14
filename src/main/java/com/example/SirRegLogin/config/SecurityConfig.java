@@ -26,14 +26,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // ✅ Disable CSRF for development
+            .csrf(csrf -> csrf.disable()) // 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/register", "/login", "/error", "/css/**", "/js/**", "/images/**").permitAll() // ✅ Public pages
+                .requestMatchers("/", "/register", "/login", "/error", "/css/**", "/js/**", "/images/**").permitAll() 
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login") // ✅ Ensure this matches your controller
-                .defaultSuccessUrl("/home", true) // ✅ Redirect to home after login
+                .loginPage("/login") 
+                .defaultSuccessUrl("/home", true) 
                 .permitAll()
             )
             .logout(logout -> logout
