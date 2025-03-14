@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Home page template using Thymeleaf templating engine -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic page metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Link to main stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Header section with navigation and user info -->
+    <div class="header">
+        <!-- Left header section with title and navigation -->
+        <div class="header-left">
+            <h1>Home</h1>
+            <!-- Main navigation links -->
+            <div class="nav-links">
+                <a th:href="@{/home}" class="active">Home</a>
+                <a th:href="@{/about}">About</a>
+                <a th:href="@{/map}">Map</a>
+            </div>
+        </div>
+        <!-- Right header section with user info and logout -->
+        <div class="header-right">
+            <!-- User welcome message - only shown if username exists -->
+            <div class="user-info" th:if="${username}">
+                Welcome, <span th:text="${username}">User</span>
+            </div>
+            <!-- Logout button -->
+            <a th:href="@{/logout}" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Welcome section -->
+        <div class="content-section">
+            <h2>Welcome to Our Platform</h2>
+            <p>Thank you for logging in. You now have access to all our features and services.</p>
+        </div>
+
+        <!-- Quick links section -->
+        <div class="content-section">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a th:href="@{/about}">Learn more about us</a></li>
+                <li><a th:href="@{/map}">View the interactive map</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 

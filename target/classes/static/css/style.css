@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: #f8f8f8;
+    animation: bg-move 10s infinite alternate;
+}
+
+@keyframes bg-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #ff007f, #8000ff);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.header:hover {
+    transform: scale(1.02);
+}
+
+/* Links */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: rgba(25, 25, 25, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(255, 0, 127, 0.5);
+    animation: fade-in 0.8s ease-in-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 20px; /* Adds space between form fields */
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ff007f;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #8000ff;
+    box-shadow: 0 0 10px rgba(128, 0, 255, 0.8);
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: block; /* Centers button */
+    margin: 10px auto; /* Adds spacing and centers button */
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #ff007f, #8000ff);
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.8);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 1);
+}
+
+/* Error Message */
+.error-message {
+    color: white;
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(255, 65, 108, 0.5);
+    margin-bottom: 20px;
+}
+
+/* Special Effects */
+@keyframes glowing {
+    0% { box-shadow: 0 0 10px #ff007f; }
+    50% { box-shadow: 0 0 20px #8000ff; }
+    100% { box-shadow: 0 0 10px #ff007f; }
+}
+
+.glowing-btn {
+    animation: glowing 1.5s infinite alternate;
+}

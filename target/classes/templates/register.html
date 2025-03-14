@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Registration page template using Thymeleaf templating engine -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic page metadata -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Link to registration-specific styles -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Main container for registration form -->
+    <div class="container">
+        <h1>Register</h1>
+        <div th:if="${error}" class="error-message" th:text="${error}"></div>
+        
+        <!-- Updated Registration Form -->
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" 
+                       id="username" 
+                       th:field="*{username}" 
+                       required 
+                       minlength="3" 
+                       maxlength="50" 
+                       pattern="[a-zA-Z0-9_-]+" 
+                       title="Username must be between 3 and 50 characters and can only contain letters, numbers, underscores, and hyphens">
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required title="Please enter a valid email address">
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" th:field="*{dob}" required>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" th:field="*{gender}" required>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" 
+                       id="phone" 
+                       th:field="*{phone}" 
+                       required 
+                       pattern="[0-9]{10}" 
+                       title="Please enter a valid 10-digit phone number">
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" th:field="*{password}" required minlength="6">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- Login Link -->
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>
