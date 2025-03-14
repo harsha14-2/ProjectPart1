@@ -28,14 +28,14 @@ public class AuthController {
     @GetMapping("/login")
     public String showLoginPage() {
         logger.info("📌 Login page accessed");
-        return "login"; // ✅ Must have login.html in templates
+        return "login"; 
     }
 
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("user", new User());
         logger.info("📌 Registration page accessed");
-        return "register"; // ✅ Must have register.html in templates
+        return "register"; 
     }
 
     @PostMapping("/register")
@@ -46,7 +46,7 @@ public class AuthController {
 
         if (result.hasErrors()) {
             logger.error("❌ Validation errors: {}", result.getAllErrors());
-            return "register"; // ✅ Stay on register page if errors
+            return "register"; 
         }
 
         try {
@@ -58,7 +58,7 @@ public class AuthController {
         } catch (RuntimeException e) {
             logger.error("❌ Registration failed - Reason: {}", e.getMessage());
             model.addAttribute("error", e.getMessage());
-            return "register"; // ✅ Stay on register if registration fails
+            return "register"; // Stay on register if registration fails
         }
     }
 
@@ -70,7 +70,7 @@ public class AuthController {
             UserDetails user = (UserDetails) authentication.getPrincipal();
 
             String username = user.getUsername();
-            String ipAddress = getClientIpAddress(request); // ✅ Extract real IP
+            String ipAddress = getClientIpAddress(request); // Extract real IP
             String roles = authentication.getAuthorities().toString();
 
             logger.info("\n==============================\n" +
@@ -88,7 +88,7 @@ public class AuthController {
         return "redirect:/home"; // Redirect to homepage after login
     }
 
-    // ✅ Utility method to get the real client IP address
+    //  Utility method to get the real client IP address
     private String getClientIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("X-Forwarded-For");
         if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
